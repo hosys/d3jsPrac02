@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>d3 subway wait</title>
+	<script type="text/javascript" src="d3/d3.v3.js"></script>
+	<script>
+		function draw(data){
+			"use strict";
+
+			var container_dimensions = {width: 900, height: 400},
+				margins = {top: 10, right: 20, bottom: 30, left: 60},
+				chart_dimensions = {
+					width: contaimer_dimensions.width - margins.left - margins.right,
+					height: container_dimensions.height - margins.top - margins.bottom
+				};
+
+			var chart = d3.select("#timeseries")
+				.append("svg")
+					.attr("width", container_dimensions.width)
+					.attr("height", container_dimensions.height)
+				.append("g")
+					.attr("transform", "transate(" + margins.left + "," + margins.top + ")")
+					.attr("id", "chart");
+			
+	
+			
+		}
+	</script>
+	<style>
+		.axis path, line {
+			stroke: black;
+		}
+
+		.line {
+			float: left;
+		}
+
+		.line_container {
+			width: 150px;
+			height: 20px;
+		}
+
+		path {
+			fill: none;
+		}
+
+		.key {
+			float: right;
+		}
+
+		.key_line {
+			font-size: 17px;
+			width: 100%;
+		}
+
+		.key_square {
+			height: 10px;
+			width: 10px;
+			outline: solid 1px black;
+			float: left;
+			margin: 6px 10px 0px 10px;
+		}
+
+		#timeseries {
+			float: left;
+		}
+
+	</style>
+	
+</head>
+<body>
+	<div id="timeseries"></div>
+	<div id="key"></div>
+	<script>
+	    d3.json("data/subway_wait_mean.json", draw);
+	</script>
+</body>
+</html>
