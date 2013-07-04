@@ -62,7 +62,7 @@
         // get the id of the current element
         var id = d.line_id
         // see if we have an associated time series
-        var ts = d3.select('#'+id)
+        var ts = d3.select('#'+id);console.log(id+","+ts);
         // toggle
         if (ts.empty()){
             d3.json('data/subway_wait.json', function(data){
